@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For Mnkuu 💗</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:linear-gradient(135deg,#ff9bb3,#ffc0cb);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.slide{
+display:none;
+height:100vh;
+padding:40px;
+box-sizing:border-box;
+}
+
+.active{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+.text{
+font-size:36px;
+max-width:750px;
+line-height:1.6;
+text-shadow:0 0 10px white;
+}
+
+button{
+font-size:40px;
+border:none;
+background:none;
+cursor:pointer;
+margin-top:40px;
+}
+
+.music{
+position:fixed;
+top:20px;
+right:20px;
+font-size:25px;
+background:white;
+color:black;
+padding:10px 15px;
+border-radius:20px;
+}
+
+.heart{
+position:fixed;
+color:white;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+.final{
+font-size:60px;
+color:#ff0066;
+text-shadow:0 0 20px white;
+}
+
+img{
+max-width:320px;
+border-radius:25px;
+box-shadow:0 0 20px pink;
+}
+
+</style>
+</head>
+
+<body>
+
+<button class="music" onclick="playMusic()">🎵 Play Music</button>
+
+<audio id="song" loop>
+<source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div class="slide active">
+<div class="text" id="text"></div>
+<button onclick="next()">❤️</button>
+</div>
+
+<div class="slide">
+<div class="text"></div>
+<button onclick="next()">❤️</button>
+</div>
+
+<div class="slide">
+<div class="text"></div>
+<button onclick="next()">❤️</button>
+</div>
+
+<div class="slide">
+<div class="text"></div>
+<button onclick="next()">❤️</button>
+</div>
+
+<div class="slide">
+<div class="text"></div>
+<button onclick="next()">❤️</button>
+</div>
+
+<div class="slide">
+<div class="text"></div>
+<button onclick="next()">❤️</button>
+</div>
+
+<div class="slide">
+
+<div class="final">I LOVE YOU SOOO MUCHH 😍💗</div>
+
+<img src="IMG_20260220_155604_759.png">
+
+<p style="font-size:26px">
+Thank you for being in my life 🤌🫠💗<br>
+Your smile means everything to me 🤍<br><br>
+I love you so much 💗<br>
+And I am always with you 🤌😊💗
+</p>
+
+</div>
+
+<script>
+
+let messages=[
+
+`Dear sweetheart mnkuu 🤌😊💗
+
+I have made this link specially for you 🤌🫠💗
+to make you feel better and take no more stress 🤌🫠
+
+Please check out this link 🤌🫠
+Click this heart button 🤌🫠💗`,
+
+`Hey mnkuu 🤌😊💗
+
+Paper thoda accha nahi gaya…
+to please itna stress mat lo 🤍
+
+Ek ya do papers se kisi ka future decide nahi hota.
+
+Tum already bahut mehnat karti ho
+aur mujhe pata hai tum kitni strong ho 💗✨`,
+
+`So please relax a little 🤌😊💗
+
+Everything will be okay 🤌🫠💗
+
+Main hamesha tumhare saath hoon
+aur mujhe tum par bahut trust hai 💗`,
+
+`Mnkuu 🤌🫠💗
+
+Kabhi kabhi things plan ke according nahi hoti
+aur ye bilkul normal hai 🤍
+
+Important ye hai ki tumne try kiya
+aur honestly mehnat bhi ki 💗`,
+
+`Tum smart ho
+tum hardworking ho
+
+Aur mujhe pata hai
+tum life mein bahut accha karogi ✨`,
+
+`Jo ho gaya usko yahin chhod dete hain 🤍
+
+Ab next papers ko full confidence ke saath dena ✨
+
+I love you so much 💗
+And I am always with you 🤌😊💗`
+
+]
+
+let slides=document.querySelectorAll(".slide")
+let texts=document.querySelectorAll(".text")
+
+let index=0
+
+function typeText(el,text){
+el.innerHTML=""
+let i=0
+let speed=35
+
+function typing(){
+if(i<text.length){
+el.innerHTML+=text.charAt(i)
+i++
+setTimeout(typing,speed)
+}
+}
+
+typing()
+}
+
+typeText(texts[0],messages[0])
+
+function next(){
+
+slides[index].classList.remove("active")
+index++
+
+slides[index].classList.add("active")
+
+if(messages[index]){
+typeText(texts[index],messages[index])
+}
+
+}
+
+function playMusic(){
+document.getElementById("song").play()
+}
+
+/* floating hearts */
+
+setInterval(()=>{
+
+let heart=document.createElement("div")
+
+heart.className="heart"
+heart.innerHTML="💗"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=(20+Math.random()*20)+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>heart.remove(),6000)
+
+},500)
+
+</script>
+
+</body>
+</html>
